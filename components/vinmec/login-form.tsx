@@ -61,44 +61,11 @@ export function LoginForm({ role, onBack, onLogin }: LoginFormProps) {
 
       <div className="flex-1 px-6 py-4">
         {/* Logo */}
-        <div className="mb-8 flex flex-col items-center">
-          <div className="mb-3 flex items-center gap-3">
-            {/* Shield Icon with Heartbeat */}
-            <svg
-              width="52"
-              height="58"
-              viewBox="0 0 64 72"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Shield Shape */}
-              <path
-                d="M32 0L4 12V33.6C4 52.08 15.68 69.12 32 72C48.32 69.12 60 52.08 60 33.6V12L32 0Z"
-                fill="#1a365d"
-              />
-              {/* Heartbeat Line */}
-              <path
-                d="M12 38H20L24 30L30 46L36 34L40 42H52"
-                stroke="white"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            
-            {/* Brand Text */}
-            <div className="flex flex-col">
-              <div className="flex items-baseline">
-                <span className="text-2xl font-bold tracking-tight text-[#1a365d]">
-                  Vinmec CARE
-                </span>
-                <span className="text-2xl font-bold text-[#f97316]">+</span>
-              </div>
-            </div>
+        <div className="mb-8 text-center">
+          <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+            <Heart className="h-8 w-8 text-primary" fill="currentColor" />
           </div>
-          <p className="text-xs font-medium tracking-wide text-muted-foreground">
-            Lifetime Care, Enduring Health
-          </p>
+          <h2 className="text-xl font-bold text-foreground">Vinmec Care+</h2>
         </div>
 
         {step === "input" ? (

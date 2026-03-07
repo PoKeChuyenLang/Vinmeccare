@@ -1,6 +1,6 @@
 "use client"
 
-import { Users, User, ArrowRight, Shield, ArrowLeft } from "lucide-react"
+import { Users, User, ArrowRight, Shield, Heart, ArrowLeft } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -29,42 +29,12 @@ export function RoleSelector({ onSelectRole, onBack }: RoleSelectorProps) {
       )}
 
       {/* Header */}
-      <div className="mb-8 flex flex-col items-center">
-        <div className="mb-3 flex items-center gap-3">
-          {/* Shield Icon with Heartbeat */}
-          <svg
-            width="52"
-            height="58"
-            viewBox="0 0 64 72"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Shield Shape */}
-            <path
-              d="M32 0L4 12V33.6C4 52.08 15.68 69.12 32 72C48.32 69.12 60 52.08 60 33.6V12L32 0Z"
-              fill="#1a365d"
-            />
-            {/* Heartbeat Line */}
-            <path
-              d="M12 38H20L24 30L30 46L36 34L40 42H52"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          
-          {/* Brand Text */}
-          <div className="flex flex-col">
-            <div className="flex items-baseline">
-              <span className="text-2xl font-bold tracking-tight text-[#1a365d]">
-                Vinmec CARE
-              </span>
-              <span className="text-2xl font-bold text-[#f97316]">+</span>
-            </div>
-          </div>
+      <div className="mb-8 text-center">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+          <Heart className="h-8 w-8 text-primary" fill="currentColor" />
         </div>
-        <p className="text-center text-sm text-muted-foreground">
+        <h1 className="text-2xl font-bold text-foreground">Vinmec Care+</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
           Chọn vai trò của bạn để tiếp tục
         </p>
       </div>

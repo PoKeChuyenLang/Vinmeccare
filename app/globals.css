@@ -10,39 +10,39 @@
   --card-foreground: oklch(0.2 0.02 240);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2 0.02 240);
-  --primary: oklch(0.28 0.13 260);
+  --primary: oklch(0.55 0.18 175);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.95 0.02 200);
   --secondary-foreground: oklch(0.3 0.05 200);
   --muted: oklch(0.95 0.01 200);
   --muted-foreground: oklch(0.5 0.02 240);
-  --accent: oklch(0.6 0.22 30);
+  --accent: oklch(0.65 0.15 175);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.9 0.01 200);
   --input: oklch(0.95 0.01 200);
-  --ring: oklch(0.28 0.13 260);
-  --chart-1: oklch(0.28 0.13 260);
-  --chart-2: oklch(0.6 0.22 30);
+  --ring: oklch(0.55 0.18 175);
+  --chart-1: oklch(0.55 0.18 175);
+  --chart-2: oklch(0.65 0.15 175);
   --chart-3: oklch(0.55 0.22 25);
   --chart-4: oklch(0.7 0.15 80);
   --chart-5: oklch(0.6 0.12 280);
   --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.28 0.13 260);
+  --sidebar-primary: oklch(0.55 0.18 175);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.95 0.02 200);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.28 0.13 260);
+  --sidebar-ring: oklch(0.55 0.18 175);
   
   /* Vinmec Custom Colors */
-  --vinmec-navy: oklch(0.28 0.13 260);
-  --vinmec-navy-light: oklch(0.45 0.08 260);
-  --vinmec-navy-dark: oklch(0.15 0.12 260);
-  --vinmec-orange: oklch(0.6 0.22 30);
+  --vinmec-teal: oklch(0.55 0.18 175);
+  --vinmec-teal-light: oklch(0.75 0.12 175);
+  --vinmec-teal-dark: oklch(0.4 0.15 175);
+  --vinmec-coral: oklch(0.65 0.18 25);
   --vinmec-emergency: oklch(0.55 0.25 25);
 }
 
