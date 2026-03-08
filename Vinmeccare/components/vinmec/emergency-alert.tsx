@@ -27,12 +27,43 @@ export function EmergencyAlert({ onClose, patientName = "Bà Trần Thị Lan" }
   const [countdown, setCountdown] = useState(60)
   const [ambulanceEta, setAmbulanceEta] = useState(8)
 
-  // Countdown timer
+  // Play emergency sound
+  const playEmergencySound = () => {
+    try {
+      // Create oscillator for alarm sound
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
+      const oscillator = audioContext.createOscillator()
+      const gainNode = audioContext.createGain()
+      
+      oscillator.connect(gainNode)
+      gainNode.connect(audioContext.destination)
+      
+      oscillator.frequency.value = 800 // Frequency in Hz
+      oscillator.type = 'sine'
+      
+      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime)
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5)
+      
+      oscillator.start(audioContext.currentTime)
+      oscillator.stop(audioContext.currentTime + 0.5)
+    } catch (error) {
+      console.log("[v0] Audio context not supported or blocked")
+    }
+  }
+
+  // Countdown timer with sound effects
   useEffect(() => {
     if (stage === "countdown" && countdown > 0) {
+      // Play sound every second during countdown
+      if (countdown <= 5) {
+        playEmergencySound()
+      }
+      
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000)
       return () => clearTimeout(timer)
     } else if (stage === "countdown" && countdown === 0) {
+      // Play longer alarm when calling
+      playEmergencySound()
       setStage("calling")
       setTimeout(() => setStage("dispatched"), 3000)
     }
@@ -119,10 +150,18 @@ export function EmergencyAlert({ onClose, patientName = "Bà Trần Thị Lan" }
             {/* Countdown */}
             <div className="mb-8 text-center">
               <p className="mb-2 text-white/80">Tự động gọi 115 sau</p>
-              <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-white/30 bg-white/10">
-                <span className="text-4xl font-bold">{countdown}</span>
+              <div className={`flex h-24 w-24 items-center justify-center rounded-full border-4 transition-all ${
+                countdown <= 5 
+                  ? "border-white bg-white/20 animate-pulse" 
+                  : "border-white/30 bg-white/10"
+              }`}>
+                <span className={`text-4xl font-bold ${countdown <= 5 ? "text-white" : "text-white"}`}>
+                  {countdown}
+                </span>
               </div>
-              <p className="mt-2 text-sm text-white/70">giây</p>
+              <p className="mt-2 text-sm text-white/70">
+                {countdown <= 5 ? `còn ${countdown}s` : "giây"}
+              </p>
             </div>
 
             {/* Action Buttons */}
