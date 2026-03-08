@@ -24,7 +24,7 @@ interface EmergencyAlertProps {
 
 export function EmergencyAlert({ onClose, patientName = "Bà Trần Thị Lan" }: EmergencyAlertProps) {
   const [stage, setStage] = useState<"countdown" | "calling" | "dispatched" | "arriving">("countdown")
-  const [countdown, setCountdown] = useState(60)
+  const [countdown, setCountdown] = useState(10)
   const [ambulanceEta, setAmbulanceEta] = useState(8)
 
   // Play emergency sound
