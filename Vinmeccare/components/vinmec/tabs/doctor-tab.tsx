@@ -15,10 +15,12 @@ import {
   Plus,
   Play,
   Check,
+  FileText,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { MedicalProfileDetail } from "./medical-profile-detail"
 
 interface DoctorTabProps {
   role: "guardian" | "carrier"
@@ -26,6 +28,7 @@ interface DoctorTabProps {
 
 export function DoctorTab({ role }: DoctorTabProps) {
   const [activeSection, setActiveSection] = useState<"telehealth" | "reminders" | "guides">("telehealth")
+  const [showMedicalProfile, setShowMedicalProfile] = useState(false)
 
   const doctors = [
     {
@@ -130,6 +133,10 @@ export function DoctorTab({ role }: DoctorTabProps) {
     },
   ]
 
+  if (showMedicalProfile) {
+    return <MedicalProfileDetail onClose={() => setShowMedicalProfile(false)} />
+  }
+
   return (
     <div className="flex flex-col px-4 pb-4">
       {/* Section Tabs */}
@@ -218,7 +225,7 @@ export function DoctorTab({ role }: DoctorTabProps) {
           </div>
 
           {/* Consultation History */}
-          <Card className="border-2 border-dashed border-muted-foreground/20">
+          <Card className="border-2 border-dashed border-muted-foreground/20 cursor-pointer transition-all hover:shadow-md active:scale-[0.99]">
             <CardContent className="flex items-center gap-3 p-4">
               <Clock className="h-5 w-5 text-muted-foreground" />
               <div className="flex-1">
@@ -226,6 +233,25 @@ export function DoctorTab({ role }: DoctorTabProps) {
                 <p className="text-xs text-muted-foreground">Xem lại các buổi khám trước</p>
               </div>
               <ChevronRight className="h-5 w-5 text-muted-foreground" />
+            </CardContent>
+          </Card>
+
+          {/* Medical Profile Card */}
+          <Card 
+            className="cursor-pointer border-primary/20 bg-primary/5 transition-all hover:shadow-md active:scale-[0.98]"
+            onClick={() => setShowMedicalProfile(true)}
+          >
+            <CardContent className="p-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <FileText className="h-6 w-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-sm font-semibold text-foreground">Hồ sơ sức khỏe chi tiết</h4>
+                  <p className="text-xs text-muted-foreground">Xem thông tin khám bệnh đầy đủ</p>
+                </div>
+                <ChevronRight className="h-5 w-5 text-primary" />
+              </div>
             </CardContent>
           </Card>
         </div>
